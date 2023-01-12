@@ -1,0 +1,13 @@
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class JspMybatisSubApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(JspMybatisSubApplication.class, args);
+	}
+
+}
