@@ -1,0 +1,10 @@
+package com.example.demo.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.dto.MemberDTO;
+
+@Repository("com.example.demo.mapper.MemberMapper")
+public interface MemberDAO {
+	public String loginCheck(MemberDTO dto);
+}

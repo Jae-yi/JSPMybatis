@@ -14,3 +14,35 @@
 1673444496657	Move 'common.jsp' to 'include'
 1673444797527	Move 'test.jsp' to 'main'
 1673445414788	Rename resource 'common.jsp'
+1673583618627	Rename type 'BoardVO'
+1673583635784	Rename type 'MemberDAO'
+1673583722907	Rename type 'BoardMapper'
+1673583796282	Rename resource 'BoardMapper.xml'
+1673584160408	Rename package 'com.example.demo.domain'
+1673584200706	Move compilation unit
+1673584202759	Move file
+1673584219489	Rename type 'MemberMapper'
+1673584496374	Delete element
+1673586174020	Copy package
+1673586180212	Delete element
+1673586244474	Rename package 'com.example.demo.board.domain'
+1673586255234	Move compilation unit
+1673586366973	Rename package 'com.example.demo.board.domain'
+1673586493659	Rename resource 'member.xml'
+1673586613223	Delete element
+1673586616834	Delete element
+1673586784082	Rename type 'MemberController'
+1673587074125	Delete element
+1673587112564	Move 'test.jsp' to 'views'
+1673587121024	Delete element
+1673588005343	Delete element
+1673588058608	Delete element
+1673589005160	Move 'test.jsp' to 'page'
+1673589010622	Move 'detail.jsp' to 'page'
+1673589012244	Move 'insert.jsp' to 'page'
+1673589013537	Move 'list.jsp' to 'page'
+1673589014752	Move 'update.jsp' to 'page'
+1673589306202	Move 'list.jsp' to 'board'
+1673589308999	Move 'insert.jsp' to 'board'
+1673589310757	Move 'detail.jsp' to 'board'
+1673589312392	Move 'update.jsp' to 'board'

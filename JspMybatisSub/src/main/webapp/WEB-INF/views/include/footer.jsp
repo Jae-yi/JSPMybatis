@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <h3>이 부분은 Footer 입니다.</h3>
+    <h5 style="position:absolute; bottom:0">Copyright 2023. INTELLIJ2 All rights reserved.</h5>
 </body>
 </html>
