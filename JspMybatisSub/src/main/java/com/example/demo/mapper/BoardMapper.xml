@@ -50,13 +50,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	>
 		UPDATE BOARD
 		SET
-		<if test="subject != null">
 			SUBJECT = #{subject}
-		</if>
-		<if test="subject != null and content != null"> , </if>
-		<if test="content != null">
-			CONTENT = #{content}
-		</if>
+			,CONTENT = #{content}
 		WHERE BNO = #{bno}
 	</update>
 

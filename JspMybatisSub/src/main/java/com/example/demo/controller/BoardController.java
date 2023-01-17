@@ -22,7 +22,7 @@ public class BoardController {
 
 		model.addAttribute("list", mBoardService.boardListService());
 
-		return "board/list"; // 생성할 jsp
+		return "board/list";
 	}
 
 	@RequestMapping("/detail/{bno}") // 게시판 상세페이지 호출
@@ -62,11 +62,17 @@ public class BoardController {
 	}
 
 	@RequestMapping("/updateProc")
-	private int boardUpdateProc(HttpServletRequest request) throws Exception {
+	private String boardUpdateProc(HttpServletRequest request) throws Exception {
 
-		BoardVO board = (BoardVO) request.getParameterMap();
+		BoardVO board = new BoardVO();
 
-		return mBoardService.boardUpdateService(board);
+		board.setSubject(request.getParameter("subject"));
+		board.setContent(request.getParameter("content"));
+		board.setBno(Integer.parseInt(request.getParameter("bno")));
+
+		mBoardService.boardUpdateService(board);
+
+		return "redirect:/detail/" + request.getParameter("bno");
 	}
 
 	@RequestMapping("/delete/{bno}")

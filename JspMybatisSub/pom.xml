@@ -40,15 +40,24 @@
 		    <scope>provided</scope>
 		</dependency>
 		
+		<!--MyBatis-->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>2.1.4</version>
 		</dependency>
 
+		<!--MySQL-->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		
+		<!--JSTL : HTML에서 자바를 사용할 수 있게 도와주는 라이브러리-->
+		<dependency>
+    		<groupId>javax.servlet</groupId>
+    		<artifactId>jstl</artifactId>
+    		<version>1.2</version>
 		</dependency>
 		
 	</dependencies>

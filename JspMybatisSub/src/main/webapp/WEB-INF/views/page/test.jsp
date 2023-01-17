@@ -9,7 +9,8 @@
 </head>
 <body>
 	<jsp:include page="../include/header.jsp"></jsp:include>
-	<p class="text-warning bg-dark">INTELLIJ2's JSP MyBatis Workout</p>
+	<p style="text-align: center">INTELLIJ2's JSP-MyBatis Project😎</p>
+	<img src="resources/image/shooya.png" style="margin:auto; display:block">
 	<jsp:include page="../include/footer.jsp"></jsp:include>
 </body>
 </html>
