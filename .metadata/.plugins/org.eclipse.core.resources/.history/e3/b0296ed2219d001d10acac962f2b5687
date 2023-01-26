@@ -1,0 +1,32 @@
+package com.example.demo.controller;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.demo.domain.MemberVO;
+import com.example.demo.service.MemberService;
+
+@Controller
+public class MemberController {
+	@Resource(name = "com.example.demo.service.MemberService") // Service 의존성 주입
+	MemberService memberService;
+	
+	@RequestMapping("/loginCheck")
+	private String memberLoginCheck(HttpServletRequest request) throws Exception {
+
+		MemberVO member = new MemberVO();
+
+		board.setSubject(request.getParameter("subject"));
+		board.setContent(request.getParameter("content"));
+		board.setWriter(request.getParameter("writer"));
+
+		mBoardService.boardInsertService(board);
+
+		return "redirect:/list";
+	}
+	
+}

@@ -84,6 +84,8 @@ i {
 }
 
 .login-btn {
+  margin-left:50px;
+  margin-top:20px;
   border: none;
   padding: 7px 20px;
   width: 50%;
@@ -101,6 +103,7 @@ i {
   flex-direction: column;
   align-items: center;
 }
+
 .alternative-signup>p {
   width: 90%;
   font-size: 1.1rem;

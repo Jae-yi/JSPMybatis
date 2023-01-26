@@ -8,6 +8,7 @@ public class MemberVO {
 	private String pwd;
 	private String nickname;
 	private Date reg_date;
+	
 	public int getMno() {
 		return mno;
 	}

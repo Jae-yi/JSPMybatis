@@ -13,7 +13,7 @@ public interface BoardMapper {
 	// 게시글 개수
 	public int boardCount() throws Exception;
 
-	// 게시글 목록
+	// 게시글 리스트
 	public List<BoardVO> boardList() throws Exception;
 
 	// 게시글 상세

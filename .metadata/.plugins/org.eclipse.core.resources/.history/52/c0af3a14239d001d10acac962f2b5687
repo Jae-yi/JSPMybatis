@@ -1,0 +1,16 @@
+package com.example.demo.mapper;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.domain.MemberVO;
+
+//DB에 접근하는 클래스
+@Repository("com.example.demo.mapper.MemberMapper")
+public class MemberMapper {
+
+	public int memberCheck(MemberVO member) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,27 @@
+package com.example.demo.controller;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.demo.domain.MemberVO;
+import com.example.demo.service.MemberService;
+
+@Controller
+public class MemberController {
+	@Resource(name = "com.example.demo.service.MemberService") // Service 의존성 주입
+	MemberService memberService;
+	
+	@ResponseBody
+    //POST로 Login으로 요청을 할 경우
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    //login이라는 메소드명을 가지고 매개변수는 member m, Httpsession session
+    public int login(MemberVO member, HttpSession session) {
+        return memberService.login(member, session);
+    }
+	
+}

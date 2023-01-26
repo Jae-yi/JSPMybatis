@@ -1,8 +1,0 @@
-package com.example.demo.service;
-
-import org.springframework.stereotype.Service;
-
-@Service("com.example.demo.service.MemberService")
-public class MemberService {
-
-}
