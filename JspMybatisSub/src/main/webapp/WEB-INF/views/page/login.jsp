@@ -18,10 +18,10 @@
 
 		//login-btn의 id를 가지는것을 클릭하게 된다면 함수 실행
 		$("#login-btn").click(function(e) {
-			
+
 			e.preventDefault();
-			
-			if($('#id').val()=='' || $('#pwd').val()=='') {
+
+			if ($('#id').val() == '' || $('#pwd').val() == '') {
 				alert("아이디나 비밀번호를 반드시 입력해주세요");
 				return;
 			} else {
@@ -73,11 +73,11 @@
 			<button id="login-btn" class="login-btn">LOGIN</button>
 		</form>
 
-		<p>Forgot password?</p>
+		<p style="margin-top: 1rem">Forgot password?</p>
 
 		<div class="alternative-signup">
 			<p>
-				Not a member? <span>Sign-up</span>
+				Not a member? <span><a href="register">Sign-up</a></span>
 			</p>
 		</div>
 	</section>

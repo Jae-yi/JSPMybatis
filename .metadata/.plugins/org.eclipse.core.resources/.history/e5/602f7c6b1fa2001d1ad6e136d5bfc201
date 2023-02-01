@@ -1,0 +1,80 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<%@ include file="../include/style.jsp"%>
+<link href="resources/css/register.css" rel="stylesheet" type="text/css">
+<head>
+<meta charset="UTF-8">
+<script src="https://kit.fontawesome.com/3f27d28028.js"
+	crossorigin="anonymous"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+
+		//뒤로가기 버튼
+		$("#goBack").click(function(e) {
+			e.preventDefault();
+			history.back();
+		})
+	
+		// 아이디 중복체크
+		$("#duplIdCheck").click(function(e) {
+			e.preventDefault();
+			duplIdCheck();
+		})
+		
+	});
+	
+	function duplIdCheck() {
+		//비동기 통신 선언 (ajax)
+		$.ajax({
+			type : "POST", //post로 요청
+/* 			url : "/login", */
+			dataType : "json",
+			data : {
+				id : $('#id').val(),
+			}, //전송할 데이터
+			success : function(data) {
+
+				if (data.login == false) {
+					alert('중복된 아이디입니다. 다른 아이디를 사용해주세요.');
+				} else {
+					alert('사용가능한 아이디입니다.');
+				}
+			}
+		});
+
+	};
+</script>
+</head>
+<body>
+	<form>
+		<div class="container">
+			<i class="fa-sharp fa-solid fa-arrow-left" id="goBack"></i>
+			<h1 style="text-align: center">Sign Up</h1>
+			<p style="text-align: center">Please fill in this form to create
+				an account.</p>
+
+			<label for="email"><b>ID *</b></label> 
+			<input type="text"
+				name="username" id = "id" placeholder="Enter User ID" required>
+			<button type="button" id="duplIdCheck">중복확인</button>
+			<label
+			for="nickname"><b>Nickname *</b></label> 
+			<input type="text" id="nickname"
+			placeholder="Enter Nickname" name="nickname" required>
+			<label
+			for="psw"><b>Password *</b></label> 
+			<input type="text" id="pwd"
+			placeholder="Enter Password" name="pwd" required> 
+			<label
+			for="rePwd"><b>Re-enter Password *</b></label>
+			 <input type="password" id="rePwd"
+			placeholder="Re-Enter Password" name="rePwd" required>
+				 
+			<button type="submit" id="submitBtn">Sign Up</button>
+		</div>
+	</form>
+</body>
+</html>

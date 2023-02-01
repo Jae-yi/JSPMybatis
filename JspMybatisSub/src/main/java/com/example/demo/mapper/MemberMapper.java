@@ -10,4 +10,8 @@ import com.example.demo.domain.MemberVO;
 public interface MemberMapper {
 
 	public MemberVO memberLogin(MemberVO member) throws Exception;
+	
+	public int idDuplCheck(String id) throws Exception;
+	
+	public void signUp(MemberVO member) throws Exception;
 }

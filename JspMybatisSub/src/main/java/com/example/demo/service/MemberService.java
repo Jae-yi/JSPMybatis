@@ -18,4 +18,14 @@ public class MemberService {
 	public MemberVO memberLogin(MemberVO member) throws Exception {
 		return memberMapper.memberLogin(member);
 	}
+
+	// 아이디 중복체크
+	public int idDuplCheck(String id) throws Exception {
+		return memberMapper.idDuplCheck(id);
+	}
+
+	// 회원가입
+	public void signUp(MemberVO member) throws Exception {
+		memberMapper.signUp(member);
+	}
 }

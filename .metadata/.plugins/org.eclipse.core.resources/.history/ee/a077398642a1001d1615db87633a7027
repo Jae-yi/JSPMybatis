@@ -1,0 +1,102 @@
+@charset "EUC-KR";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto+Condensed:wght@700&family=Roboto:wght@300;400;500;600;700&display=swap');
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color:#f7f7f7;
+}
+* {box-sizing: border-box}
+
+body {
+  background-color: #fff9f9;
+  min-height: 700px;
+  min-width: 700px;
+  height: 100vh;
+  width: 100vw;
+  background-color:hsla(0,100%,88%,1);
+  background-image:
+radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%),
+radial-gradient(at 0% 50%, hsla(355,100%,93%,1) 0px, transparent 50%),
+radial-gradient(at 80% 50%, hsla(340,100%,76%,1) 0px, transparent 50%),
+radial-gradient(at 0% 100%, hsla(269,100%,77%,1) 0px, transparent 50%),
+radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0px, transparent 50%);
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 20px;
+      width:500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+      border:1px solid #ccc;
+      border-radius:10px;
+      background:white;
+  -webkit-box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
+  -moz-box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
+  box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
+  }
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f7f7f7;
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+}
+select {
+  width: 18%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f7f7f7;
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+}
+
+input[type=phone] {
+  width: 81%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f7f7f7;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=phone]:focus, select:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+
+/* Set a style for all buttons */
+button {
+  margin-top:20px;
+  border: none;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  background-image: linear-gradient(43deg, hsla(340,100%,76%,1) 0%, hsla(269,100%,77%,1) 100%);
+  color: white;
+  font-weight: 600;
+}
+
+button:disabled {
+  margin-top:20px;
+  border: none;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  background-image: linear-gradient(43deg, hsla(340,100%,76%,1) 0%, hsla(269,100%,77%,1) 100%);
+  color: white;
+  font-weight: 600;
+}
+
+button:hover {
+  opacity:1;
+}

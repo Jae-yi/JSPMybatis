@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,19 +25,20 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 
+	// 로그인
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<Object, Object> login(@RequestParam("id") String id ,@RequestParam("pwd") String pwd, HttpSession session,
-			Model model) throws Exception {
-		
+	public Map<Object, Object> login(@RequestParam("id") String id, @RequestParam("pwd") String pwd,
+			HttpSession session, Model model) throws Exception {
+
 		Map<Object, Object> map = new HashMap<Object, Object>();
-		MemberVO member = new MemberVO() ;
-		member.setId(id) ;
-		member.setPwd(pwd) ;
-		
-		MemberVO userInfo = memberService.memberLogin(member) ;
-		
-		if(userInfo != null) {
+		MemberVO member = new MemberVO();
+		member.setId(id);
+		member.setPwd(pwd);
+
+		MemberVO userInfo = memberService.memberLogin(member);
+
+		if (userInfo != null) {
 			map.put("login", true);
 			map.put("id", userInfo.getId());
 			map.put("nickname", userInfo.getNickname());
@@ -46,17 +48,55 @@ public class MemberController {
 		} else {
 			map.put("login", false);
 		}
-		
+
 		return map;
 	}
 
-
+	// 로그아웃
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) throws Exception {
 
 		session.invalidate();
 
 		return "redirect:/";
+	}
+
+	// 아이디 중복체크
+	@RequestMapping(value = "/idDuplCheck", method = RequestMethod.GET)
+	@ResponseBody
+	public Map<Object, Object> idDuplCheck(@RequestParam("id") String id, HttpSession session, Model model)
+			throws Exception {
+
+		Map<Object, Object> map = new HashMap<Object, Object>();
+
+		int idDuplCheck = memberService.idDuplCheck(id);
+
+		if (idDuplCheck == 1) {
+			map.put("duplId", true);
+		} else {
+			map.put("duplId", false);
+		}
+
+		return map;
+	}
+
+	// 회원가입
+	@RequestMapping(value = "/signUp", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<Object, Object> signUp(@RequestParam("id") String id, @RequestParam("pwd") String pwd,
+			@RequestParam("nickname") String nickname, HttpSession session, Model model) throws Exception {
+
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		MemberVO member = new MemberVO();
+		member.setId(id);
+		member.setPwd(pwd);
+		member.setNickname(nickname);
+
+		memberService.signUp(member);
+
+		map.put("signUp", true);
+
+		return map;
 	}
 
 }

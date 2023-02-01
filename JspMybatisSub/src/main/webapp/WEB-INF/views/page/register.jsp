@@ -1,0 +1,177 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<%@ include file="../include/style.jsp"%>
+<link href="resources/css/register.css" rel="stylesheet" type="text/css">
+<head>
+<meta charset="UTF-8">
+<script src="https://kit.fontawesome.com/3f27d28028.js"
+	crossorigin="anonymous"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script>
+	
+	// 아이디 중복체크 여부 체크
+	var idck = 0;
+
+	$(document).ready(function() {
+
+		//뒤로가기 버튼
+		$("#goBack").click(function(e) {
+			e.preventDefault();
+			history.back();
+		})
+	
+		// 아이디 중복체크
+		$("#duplIdCheck").click(function(e) {
+			e.preventDefault();
+			duplIdCheck();
+		})
+		
+		// 회원가입 
+		$("#submitBtn").click(function(e) {
+			e.preventDefault();
+			signUp();
+		})
+		
+	});
+	
+	// 비밀번호 일치 여부 확인
+	$(function() {
+		$("#pwdSuccess").hide();
+		$("#pwdFail").hide();
+		$("#rePwd").keyup(function() {
+			var pwd = $("#pwd").val();
+			var rePwd = $("#rePwd").val();
+			if (rePwd == "") {
+				$("#pwdSuccess").hide();
+				$("#pwdFail").hide();
+			} else if (pwd != "" || rePwd != "") {
+				if (pwd == rePwd) {
+					$("#pwdSuccess").show();
+					$("#pwdFail").hide();
+					$("#rePwd").removeClass("is-invalid")
+					$("#submitBtn").removeAttr("disabled");
+				} else {
+					$("#pwdSuccess").hide();
+					$("#pwdFail").show();
+					$("#rePwd").addClass("is-invalid")
+					$("#submitBtn").attr("disabled", "disabled");
+				}
+			}
+		});
+	});
+	
+	$(function() {
+		$("#pwdSuccess").hide();
+		$("#pwdFail").hide();
+		$("#pwd").keyup(function() {
+			var pwd = $("#pwd").val();
+			var rePwd = $("#rePwd").val();
+			if (rePwd == "") {
+				$("#pwdSuccess").hide();
+				$("#pwdFail").hide();
+			} else if (pwd != "" || rePwd != "") {
+				if (pwd == rePwd) {
+					$("#pwdSuccess").show();
+					$("#pwdFail").hide();
+					$("#rePwd").removeClass("is-invalid")
+					$("#submitBtn").removeAttr("disabled");
+				} else {
+					$("#pwdSuccess").hide();
+					$("#pwdFail").show();
+					$("#rePwd").addClass("is-invalid")
+					$("#submitBtn").attr("disabled", "disabled");
+				}
+			}
+		});
+	});
+	
+	function duplIdCheck() {
+		//비동기 통신 선언 (ajax)
+		$.ajax({
+			type : "GET",
+			url : "/idDuplCheck",
+			dataType : "json",
+			data : {
+				id : $('#id').val(),
+			}, //전송할 데이터
+			success : function(data) {
+
+				if (data.duplId == true) {
+					alert('중복된 아이디입니다. 다른 아이디를 사용해주세요.');
+				} else {
+					alert('사용가능한 아이디입니다.');
+					idck = 1;
+				}
+			},
+
+		});
+
+	};
+	
+	function signUp() {
+		
+		if (idck == 0) {
+			alert('아이디 중복여부를 체크해주세요.')
+		} else {
+			//비동기 통신 선언 (ajax)
+			$.ajax({
+				type : "POST",
+				url : "/signUp",
+				dataType : "json",
+				data : {
+					id : $('#id').val(),
+					pwd : $('#pwd').val(),
+					nickname : $('#nickname').val(),
+				}, //전송할 데이터
+				success : function(data) {
+
+					if (data.signUp == true) {
+						alert('🎉 회원가입에 성공하였습니다! 🎉');
+						location.href = "/";
+						
+					} else {
+						alert('회원가입에 실패하였습니다😭');
+					}
+				},
+
+			});
+		}
+	};
+</script>
+</head>
+<body>
+	<form>
+		<div class="container">
+			<i class="fa-sharp fa-solid fa-arrow-left" id="goBack"></i>
+			<h1 style="text-align: center">Sign Up</h1>
+			<p style="text-align: center">Please fill in this form to create
+				an account.</p>
+
+			<label for="email"><b>ID *</b></label>
+			<div id ="idInputDiv" style="display:flex">
+			<input type="text"
+				name="username" id = "id" placeholder="Enter User ID" required>
+			<button type="button" class="btn btn-outline-primary" id="duplIdCheck">Check</button>
+			</div>
+			<label
+			for="nickname"><b>Nickname *</b></label> 
+			<input type="text" id="nickname"
+			placeholder="Enter Nickname" name="nickname" required>
+			<label
+			for="psw"><b>Password *</b></label> 
+			<input type="password" id="pwd"
+			placeholder="Enter Password" name="pwd" required> 
+			<label
+			for="rePwd"><b>Re-enter Password *</b></label>
+			 <input type="password" id="rePwd"
+			placeholder="Re-Enter Password" name="rePwd" required>
+			<span id="pwdFail" style="color:red;"><strong>비밀번호가 일치하지 않습니다.</strong></span>
+			<span id="pwdSuccess" style="color:blue;"><strong>비밀번호가 일치합니다.</strong></span>
+				 
+			<button type="submit" class="submitBtn" id="submitBtn">Sign Up</button>
+		</div>
+	</form>
+</body>
+</html>

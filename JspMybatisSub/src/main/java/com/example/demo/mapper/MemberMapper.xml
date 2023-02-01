@@ -17,5 +17,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		AND
 		pwd = #{pwd}
 	</select>
+	
+	<select
+		id="idDuplCheck"
+		parameterType="String"
+		resultType="int"
+	>
+		SELECT
+		count(*)
+		FROM MEMBER
+		WHERE
+		id = #{id}
+	</select>
+	
+	<insert
+		id="signUp"
+		parameterType="String"
+	>
+		INSERT
+		INTO MEMBER
+		(id, pwd, nickname, reg_date)
+		VALUES
+		(#{id}, #{pwd}, #{nickname}, now())
+	</insert>
 
 </mapper>
